@@ -5,7 +5,7 @@ Demonstration driving the Raspberry Pi PiHut 3D Xmas tree using Python Asyncio
 
 ![The tree in blinky action](https://github.com/davesteele/pihut-xmas-asyncio/raw/master/images/Blinky.gif)
 
-[PiHut]() is selling a
+[The Pi Hut](https://thepihut.com/) is selling a
 [3D Xmas Tree](https://thepihut.com/products/3d-xmas-tree-for-raspberry-pi)
 that plugs into the Raspberry Pi
 [GPIO header](https://www.raspberrypi.org/documentation/usage/gpio-plus-and-raspi2/).
