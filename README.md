@@ -25,7 +25,7 @@ come up automatically on boot.
 
 ## How it Works, in Brief
 
-The *async* keyword turns a function into a *coroutine*, which is a cousin to a generator function.
+In [xmas.py](https://github.com/davesteele/pihut-xmas-asyncio/blob/master/xmas.py), tThe *async* keyword turns a function into a *coroutine*, which is a cousin to a generator function.
 
 Instead of *yield*-ing, the coroutine returns control to the calling function when it passes control to another coroutine, flagged with the *await* keyword.
 
