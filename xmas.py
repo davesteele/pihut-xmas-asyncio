@@ -34,7 +34,7 @@ async def blink_led(ledno):
         await asyncio.sleep(offtime)
 
 loop = asyncio.get_event_loop()
-tasks = [asyncio.ensure_future(blink_led(x)) for x in range(2, 28)]
+tasks = [asyncio.ensure_future(blink_led(x)) for x in range(2, 27)]
 loop.run_forever()
 
 loop.close()
