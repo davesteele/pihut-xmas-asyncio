@@ -23,6 +23,8 @@ Change the constants in the script to change the blink parameters.
 run '*sudo ./install.sh*' to have the blink program
 come up automatically on boot.
 
+The asyncio syntax used here requires Python 3.5 or newer. It will not run on stock Raspbian Jessie.
+
 ## How it Works, in Brief
 
 In [xmas.py](https://github.com/davesteele/pihut-xmas-asyncio/blob/master/xmas.py), the *async* keyword turns a function into a *coroutine*, which is a cousin to a generator function.
