@@ -42,7 +42,7 @@ async def blink_led(ledno):
         GPIO.setup(ledno, GPIO.IN)
 
 loop = asyncio.get_event_loop()
-tasks = [asyncio.ensure_future(blink_led(x)) for x in range(2, 27)]
+tasks = [asyncio.ensure_future(blink_led(x)) for x in range(2, 28)]
 loop.add_signal_handler(signal.SIGTERM, do_sigterm)
 try:
     loop.run_forever()
