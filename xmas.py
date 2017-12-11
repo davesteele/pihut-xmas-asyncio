@@ -2,6 +2,7 @@
 
 import asyncio
 import random
+import signal
 import RPi.GPIO as GPIO
 
 # time in seconds
@@ -18,6 +19,10 @@ def calcplusorminus(val, var):
     """return random number in the range val +/- (var*100)%"""
     factor = (1.0 - var) + (random.random() * 2 * var)
     return factor * val
+
+
+def do_sigterm():
+    raise KeyboardInterrupt
 
 
 async def blink_led(ledno):
@@ -38,6 +43,7 @@ async def blink_led(ledno):
 
 loop = asyncio.get_event_loop()
 tasks = [asyncio.ensure_future(blink_led(x)) for x in range(2, 27)]
+loop.add_signal_handler(signal.SIGTERM, do_sigterm)
 try:
     loop.run_forever()
 except KeyboardInterrupt:
