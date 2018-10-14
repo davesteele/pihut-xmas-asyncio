@@ -8,7 +8,7 @@ Demonstration driving the Raspberry Pi PiHut 3D Xmas tree using Python Asyncio
 [The Pi Hut](https://thepihut.com/) is selling a
 [3D Xmas Tree](https://thepihut.com/products/3d-xmas-tree-for-raspberry-pi)
 that plugs into the Raspberry Pi
-[GPIO header](https://www.raspberrypi.org/documentation/usage/gpio-plus-and-raspi2/).
+[GPIO header](https://www.raspberrypi.org/documentation/usage/gpio/).
 
 Raspbian includes a Python [GPIO Module](https://sourceforge.net/p/raspberry-gpio-python/wiki/BasicUsage/) that facilitates working with PI I/O.
 
