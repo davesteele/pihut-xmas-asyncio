@@ -22,10 +22,12 @@ def calcplusorminus(val, var):
 
 
 def do_sigterm():
+    """SIGTERM triggers the KeyboardInterrupt handler."""
     raise KeyboardInterrupt
 
 
 async def blink_led(ledno):
+    """The led blinking coroutine for one led."""
     ontime = calcplusorminus(ONTIME, PLUSORMINUS)
     offtime = calcplusorminus(OFFTIME, PLUSORMINUS)
 
@@ -42,9 +44,13 @@ async def blink_led(ledno):
         GPIO.setup(ledno, GPIO.IN)
 
 
-loop = asyncio.get_event_loop()
+# create a Task for each led.
+# gpio 2 is the yellow star - 4-27 are the other tree lights
 tasks = [asyncio.ensure_future(blink_led(x)) for x in range(2, 28) if x != 3]
+
+loop = asyncio.get_event_loop()
 loop.add_signal_handler(signal.SIGTERM, do_sigterm)
+
 try:
     loop.run_forever()
 except KeyboardInterrupt:
