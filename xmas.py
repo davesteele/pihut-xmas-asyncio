@@ -7,10 +7,10 @@ import RPi.GPIO as GPIO
 
 # time in seconds
 ONTIME = 1.5
-OFFTIME = .3
+OFFTIME = 0.3
 
 # Random range in the times (between 0 and 1)
-PLUSORMINUS = .3
+PLUSORMINUS = 0.3
 
 GPIO.setmode(GPIO.BCM)
 
@@ -40,6 +40,7 @@ async def blink_led(ledno):
             await asyncio.sleep(offtime)
     except asyncio.CancelledError:
         GPIO.setup(ledno, GPIO.IN)
+
 
 loop = asyncio.get_event_loop()
 tasks = [asyncio.ensure_future(blink_led(x)) for x in range(2, 28) if x != 3]
