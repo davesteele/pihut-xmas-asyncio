@@ -16,6 +16,13 @@ Recent versions of Python include [Asyncio](https://medium.freecodecamp.org/a-gu
 
 ## How to Use It
 
+The script requires the rpi.gpio, which may not be installed by default
+
+
+    sudo apt-get update
+    sudo apt-get install rpi.gpio
+
+
 Run '*./xmas.py*' to see the lights blink.
 
 Change the constants in the script to change the blink parameters.
