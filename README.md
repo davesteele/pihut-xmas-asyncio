@@ -16,7 +16,7 @@ Recent versions of Python include [Asyncio](https://medium.freecodecamp.org/a-gu
 
 ## How to Use It
 
-The script requires the rpi.gpio, which may not be installed by default
+The script requires the rpi.gpio package, which may not be installed by default
 
 
     sudo apt-get update
