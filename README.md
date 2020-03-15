@@ -14,6 +14,8 @@ Raspbian includes a Python [GPIO Module](https://sourceforge.net/p/raspberry-gpi
 
 Recent versions of Python include [Asyncio](https://medium.freecodecamp.org/a-guide-to-asynchronous-programming-in-python-with-asyncio-232e2afa44f6), which provides tools to allow multiple I/O-bound functions to work cooperatively in a single-threaded event loop.
 
+This demo blinks each of the 25 lights on the tree at a constant, unique rate.
+
 ## How to Use It
 
 The script requires the rpi.gpio package, which may not be installed by default
