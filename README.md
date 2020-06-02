@@ -12,7 +12,7 @@ that plugs into the Raspberry Pi
 
 Raspbian includes a Python [GPIO Module](https://sourceforge.net/p/raspberry-gpio-python/wiki/BasicUsage/) that facilitates working with PI I/O.
 
-Recent versions of Python include [Asyncio](https://medium.freecodecamp.org/a-guide-to-asynchronous-programming-in-python-with-asyncio-232e2afa44f6), which provides tools to allow multiple I/O-bound functions to work cooperatively in a single-threaded event loop.
+Recent versions of Python include [Asyncio](https://docs.python.org/3.7/library/asyncio.html), which provides tools to allow multiple I/O-bound functions to work cooperatively in a single-threaded event loop.
 
 This demo blinks each of the 25 lights on the tree at a constant, unique rate.
 
