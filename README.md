@@ -48,4 +48,6 @@ The *ensure_future()* function submits coroutines to the main event loop, which 
 
 The twinkling works by using Pulse Width Modulation ([PWM](https://en.m.wikipedia.org/wiki/Pulse-width_modulation)) to randomly vary the brightness of the 'on' LEDs.
 
-This version of xmas.py requires more CPU power than the original (~40% of one core on a Pi 3B, for the single-threaded code). The non-twinkling version, *xmas-orig.py*, uses less than 1%.
+This version of xmas.py requires more CPU power than the original (~40% of one
+core on a Pi 3B, for the single-threaded code). The non-twinkling version,
+*xmas-orig.py*, uses less than 1% (Better for the Zero).
