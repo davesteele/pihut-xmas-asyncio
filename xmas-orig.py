@@ -27,18 +27,6 @@ def calcplusorminus(val, var):
     return factor * val
 
 
-async def twinkle(ledno, secs):
-    for i in range(int(secs * 1000.0 / TWINKLEUPDATEPERIOD)):
-        # the brighness PWM % is log scale, in the range 0.5-1.0
-        rnd = ((10 ** random.random()) - 1.0) / 9
-        rnd = rnd / 2 + .5
-        for _ in range(int(TWINKLEUPDATEPERIOD / TWINKLEPWMPERIOD)):
-            GPIO.output(ledno, GPIO.HIGH)
-            await asyncio.sleep(rnd * TWINKLEPWMPERIOD/1000.0)
-            GPIO.output(ledno, GPIO.LOW)
-            await asyncio.sleep((1 - rnd) * TWINKLEPWMPERIOD/1000.0)
-
-
 async def blink_led(ledno):
     """The led blinking coroutine for one led."""
     ontime = calcplusorminus(ONTIME, PLUSORMINUS)
@@ -48,10 +36,8 @@ async def blink_led(ledno):
 
     try:
         while True:
-            # This is the original, non-Twinkle code
-            # GPIO.output(ledno, GPIO.HIGH)
-            # await asyncio.sleep(ontime)
-            await twinkle(ledno, ontime)
+            GPIO.output(ledno, GPIO.HIGH)
+            await asyncio.sleep(ontime)
 
             GPIO.output(ledno, GPIO.LOW)
             await asyncio.sleep(offtime)
