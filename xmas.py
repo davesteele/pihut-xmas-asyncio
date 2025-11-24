@@ -59,36 +59,26 @@ async def blink_led(ledno):
         GPIO.setup(ledno, GPIO.IN)
 
 
-async def amain():
-    # create a Task for each led.
-    # gpio 2 is the yellow star - 4-27 are the other tree lights
-    loop = asyncio.get_event_loop()
-    tasks = [loop.create_task(blink_led(x)) for x in range(2, 28) if x != 3]
-
-    try:
-        await asyncio.gather(*tasks)
-    except asyncio.CancelledError:
-        [task.cancel() for task in tasks]
-        await asyncio.gather(*tasks)
-
-
 def do_sigterm():
     """SIGTERM triggers the KeyboardInterrupt handler."""
     raise KeyboardInterrupt
 
 
-def main():
-    loop = asyncio.get_event_loop()
+async def main():
+    loop = asyncio.get_running_loop()
     loop.add_signal_handler(signal.SIGTERM, do_sigterm)
 
-    task = loop.create_task(amain())
+    # create a Task for each led.
+    # gpio 2 is the yellow star - 4-27 are the other tree lights
+    tasks = [loop.create_task(blink_led(x)) for x in range(2, 28) if x != 3]
 
     try:
-        loop.run_forever()
-    except KeyboardInterrupt:
-        task.cancel()
-        loop.run_until_complete(task)
+        await asyncio.gather(*tasks)
+    except (asyncio.CancelledError, KeyboardInterrupt):
+        [task.cancel() for task in tasks]
+        await asyncio.gather(*tasks)
 
 
 if __name__ == "__main__":
-    main()
+    asyncio.run(main())
+
