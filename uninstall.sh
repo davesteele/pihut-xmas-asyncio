@@ -6,5 +6,5 @@ if [ $(id -u) -ne 0 ]
 fi
 
 systemctl disable xmas
-rm -f xmas.py /usr/bin
-rm -f xmas.service /etc/systemd/system/
+rm -f xmas.py /usr/bin/xmas.py
+rm -f xmas.service /etc/systemd/system/xmas.sesrvice
