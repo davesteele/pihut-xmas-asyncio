@@ -44,8 +44,6 @@ In [xmas.py](https://github.com/davesteele/pihut-xmas-asyncio/blob/master/xmas.p
 
 Instead of *yield*-ing, the coroutine returns control to the calling function when it passes control to another coroutine, flagged with the *await* keyword.
 
-The *ensure_future()* function submits coroutines to the main event loop, which is then called to kick things off.
-
 The twinkling works by using Pulse Width Modulation ([PWM](https://en.m.wikipedia.org/wiki/Pulse-width_modulation)) to randomly vary the brightness of the 'on' LEDs.
 
 This version of xmas.py requires more CPU power than the original (~40% of one
