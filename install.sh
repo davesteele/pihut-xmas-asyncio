@@ -9,4 +9,5 @@ cp xmas.py /usr/bin
 cp xmas.service /etc/systemd/system/
 
 systemctl enable xmas
+systemctl start xmas
 
