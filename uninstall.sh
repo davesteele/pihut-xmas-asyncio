@@ -5,8 +5,6 @@ if [ $(id -u) -ne 0 ]
   exit
 fi
 
-cp xmas.py /usr/bin
-cp xmas.service /etc/systemd/system/
-
-systemctl enable xmas
-
+systemctl disable xmas
+rm -f xmas.py /usr/bin
+rm -f xmas.service /etc/systemd/system/
