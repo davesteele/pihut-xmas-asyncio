@@ -2,7 +2,7 @@
 Description=PiHut 3D Xmas Tree Driver
 
 [Service]
-ExecStart=/usr/bin/xmas.py
+ExecStart=/usr/local/bin/xmas.py
 
 [Install]
 WantedBy=multi-user.target

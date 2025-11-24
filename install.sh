@@ -5,7 +5,7 @@ if [ $(id -u) -ne 0 ]
   exit
 fi
 
-cp xmas.py /usr/bin
+cp xmas.py /usr/local/bin
 cp xmas.service /etc/systemd/system/
 
 systemctl enable xmas

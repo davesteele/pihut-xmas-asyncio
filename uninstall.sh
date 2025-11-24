@@ -8,5 +8,6 @@ fi
 systemctl stop xmas
 systemctl disable xmas
 rm -f /usr/bin/xmas.py
+rm -f /usr/local/bin/xmas.py
 rm -f /etc/systemd/system/xmas.sesrvice
 systemctl daemon-reload
