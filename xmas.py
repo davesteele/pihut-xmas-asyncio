@@ -55,7 +55,7 @@ async def blink_led(ledno):
 
             GPIO.output(ledno, GPIO.LOW)
             await asyncio.sleep(offtime)
-    except asyncio.CancelledError:
+    except (asyncio.CancelledError, KeyboardInterrupt):
         GPIO.setup(ledno, GPIO.IN)
 
 
