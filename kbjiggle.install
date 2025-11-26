@@ -1,0 +1,25 @@
+#!/usr/bin/bash
+
+if [ $(id -u) -ne 0 ]
+  then echo Please run this script as root or using sudo!
+  exit
+fi
+
+if ! grep dwc2 /boot/config.txt; then
+    echo "dtoverlay=dwc2" >> /boot/firmware/config.txt
+fi
+
+echo "dwc2" > /etc/modules-load.d/kbjiggle.conf
+
+for prog in hid-gadget-test sendkeys rpi-hid.sh ; do
+    cp $prog /usr/local/bin/$prog
+done
+
+cp kbjiggle.service /etc/systemd/system/
+
+systemctl enable kbjiggle
+
+read -p "Press any key to reboot for module install, or press ^C to abort" _dummy
+
+reboot
+
