@@ -59,13 +59,13 @@ async def blink_led(ledno):
         GPIO.setup(ledno, GPIO.IN)
 
 
-def do_sigterm():
-    """SIGTERM triggers the KeyboardInterrupt handler."""
-    raise KeyboardInterrupt
-
-
 async def main():
     loop = asyncio.get_running_loop()
+    maintask = asyncio.current_task()
+
+    def do_sigterm():
+        maintask.cancel()
+
     loop.add_signal_handler(signal.SIGTERM, do_sigterm)
 
     # create a Task for each led.
@@ -74,7 +74,7 @@ async def main():
 
     try:
         await asyncio.gather(*tasks)
-    except (asyncio.CancelledError, KeyboardInterrupt):
+    except asyncio.CancelledError:
         [task.cancel() for task in tasks]
         await asyncio.gather(*tasks)
 
