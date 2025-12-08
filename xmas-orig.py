@@ -12,12 +12,6 @@ OFFTIME = 0.3
 # Random range in the led on/off times (between 0 and 1)
 PLUSORMINUS = 0.5
 
-# The time that a given twinkle power is set, in msec
-TWINKLEUPDATEPERIOD = 100
-# The Twinkle PWM period, in msec
-TWINKLEPWMPERIOD = 20
-
-
 GPIO.setmode(GPIO.BCM)
 
 
