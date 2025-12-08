@@ -31,12 +31,12 @@ async def twinkle(ledno, secs):
     for i in range(int(secs * 1000.0 / TWINKLEUPDATEPERIOD)):
         # the brighness PWM % is log scale, in the range 0.5-1.0
         rnd = ((10 ** random.random()) - 1.0) / 9
-        rnd = rnd / 2 + .5
+        rnd = rnd / 2 + 0.5
         for _ in range(int(TWINKLEUPDATEPERIOD / TWINKLEPWMPERIOD)):
             GPIO.output(ledno, GPIO.HIGH)
-            await asyncio.sleep(rnd * TWINKLEPWMPERIOD/1000.0)
+            await asyncio.sleep(rnd * TWINKLEPWMPERIOD / 1000.0)
             GPIO.output(ledno, GPIO.LOW)
-            await asyncio.sleep((1 - rnd) * TWINKLEPWMPERIOD/1000.0)
+            await asyncio.sleep((1 - rnd) * TWINKLEPWMPERIOD / 1000.0)
 
 
 async def blink_led(ledno):
@@ -81,4 +81,3 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
-
